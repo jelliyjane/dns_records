@@ -23,7 +23,7 @@ def process_files_with_custom_header(file_names):
                 for chunk in chunks:
                     # 각 조각에 "_443._udp.ns1.{hostname}." 형태 추가
                     hostname = file_name[:-8]  # 파일명에서 확장자와 특정 부분 제거
-                    f.write(f"_443._udp.ns1.{hostname}.{textnum}.esplab.io          IN      TLSA    3 0 0(\n")
+                    f.write(f"_443._udp.ns1.{hostname}.{textnum}.esplab.io.         IN      TLSA    3 0 0(\n")
                     lines = [chunk[i:i + 60] for i in range(0, len(chunk), 60)]  # 한 줄에 60자씩 나눔
                     for line in lines:
                         f.write(' ' * 18 + line + '\n')
